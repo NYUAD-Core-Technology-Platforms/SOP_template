@@ -28,7 +28,7 @@ import re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILD_DIR = os.path.join(ROOT, 'build')
 HTML_DIR = os.path.join(BUILD_DIR, 'html')
-DOCX_DIR = os.path.join(BUILD_DIR, 'docx')
+DOCX_DIR = os.path.join(HTML_DIR, 'docx')
 TEMPLATES_DIR = os.path.join(ROOT, 'templates')
 
 
