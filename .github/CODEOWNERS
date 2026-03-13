@@ -1,0 +1,28 @@
+# ══════════════════════════════════════════════════════════════
+# CODEOWNERS — Defines who must approve changes before merging
+# ══════════════════════════════════════════════════════════════
+# When a PR modifies files matching a pattern, the listed owners
+# are automatically requested for review and MUST approve.
+#
+# Format:  <pattern>  @github-username-or-team
+# ══════════════════════════════════════════════════════════════
+
+# ── CTP-wide config (affects ALL SOPs) — requires admin approval ──
+/config/                        @hz3752
+
+# ── Templates and build system — requires admin approval ──
+/templates/                     @hz3752
+/scripts/                       @hz3752
+/schema/                        @hz3752
+
+# ── Biomedical Imaging Lab SOPs — requires lab responsible person ──
+/sops/biomedical_imaging/       @hz3752
+/labs/biomedical_imaging/       @hz3752
+
+# ── Example Lab (add real owners as needed) ──
+# /sops/example_lab/            @lab-manager-username
+# /labs/example_lab/            @lab-manager-username
+
+# ── To add a new lab, copy the pattern above and set the owner:
+# /sops/<lab_name>/             @responsible-person-github-username
+# /labs/<lab_name>/             @responsible-person-github-username
