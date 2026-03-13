@@ -1,0 +1,132 @@
+# SOP: Operation of Confocal Microscope XYZ
+# Lab: Advanced Imaging Lab (example_lab)
+
+title: "Operation of Confocal Microscope XYZ"
+sop_number: "AIL-SOP-001"
+version: "1.2"
+effective_date: "2026-03-01"
+author: "Dr. Jane Smith"
+lab: "example_lab"
+
+status: approved
+
+# ── Section 1 — Emergency Shutdown ──
+emergency_shutdown: |
+  1. Press the EMERGENCY STOP button on the front panel (red button, lower right).
+  2. Turn off the laser key switch.
+  3. If smoke or burning smell is present, evacuate immediately and call 999.
+  4. Notify lab supervisor Dr. Jane Smith (02-628-1234).
+
+# ── Section 3 — SOP Type ──
+sop_type: "specific_lab_procedure"
+sop_type_description: "Operation of Confocal Microscope XYZ for fluorescence imaging"
+
+# ── Section 4 — Description ──
+description: |
+  This SOP covers the standard operation of the Confocal Microscope XYZ
+  for fluorescence imaging of biological and material science samples.
+  The instrument uses Class 3B lasers (488nm, 561nm, 633nm) and requires
+  specific safety precautions during operation.
+
+frequency: "daily"
+duration: "2-4 hours"
+
+# ── Section 5 — Hazards ──
+hazardous_substances:
+  - name: "Immersion Oil (Type F)"
+    hazards: "Mild skin irritant; avoid eye contact"
+  - name: "Fluorescence mounting media"
+    hazards: "Contains organic solvents; use in fume hood"
+
+other_hazards:
+  - "Class 3B laser radiation — eye damage from direct or reflected beam"
+  - "Electrical hazards from high-voltage arc lamp power supply"
+  - "UV exposure risk when using DAPI excitation"
+
+safety_guidelines: |
+  - Always wear laser safety goggles (OD 5+ at 488nm) when laser is active.
+  - Ensure the interlock system is functional before powering on lasers.
+  - Never look directly into the objective or scan head aperture.
+  - Use immersion oil in well-ventilated area; wear nitrile gloves.
+  - Report any laser safety interlock failures immediately to EHS.
+
+references:
+  - "Manufacturer's Operating Manual (Lab drawer 3, shelf B)"
+  - "ANSI Z136.1 — Safe Use of Lasers"
+  - "SDS for Immersion Oil Type F (EHS chemical inventory)"
+  - "SDS for ProLong Diamond Mounting Medium"
+
+risk_assessment:
+  performed: true
+  location: "Lab safety folder, Section 4 — also on shared drive under /risk_assessments/"
+
+# ── Section 6 — Storage ──
+storage_requirements: |
+  - Microscope objectives: store in padded case in designated cabinet.
+  - Immersion oil: store upright in flammables cabinet (Room 105, Cabinet B).
+  - Spare filters: store in desiccator drawer to prevent moisture damage.
+  - Cover microscope with dust cover when not in use.
+
+# ── Section 7 — PPE ──
+ppe:
+  street_clothing: true
+  gloves: true
+  gloves_type: "Nitrile (when handling immersion oil or mounting media)"
+  safety_goggles: true
+  safety_glasses: false
+  face_shield: false
+  lab_coat: true
+  flame_resistant_lab_coat: false
+  other: "Laser safety goggles (OD 5+ at 488nm, 561nm, 633nm)"
+
+# ── Section 8 — Waste ──
+waste_disposal: |
+  - Used lens cleaning tissue: dispose in regular waste bin.
+  - Used immersion oil wipes: dispose in chemical waste container (under fume hood).
+  - Expired mounting media: label and place in chemical waste collection area.
+  - No bulk liquid waste anticipated from normal operation.
+
+# ── Section 10 — Training ──
+training:
+  general:
+    safety_orientation: true
+    risk_assessment: true
+    lab_safety_induction: true
+    bloodborne_pathogens: false
+    xray_safety: false
+    compressed_gas: false
+    biosafety_induction: false
+    other: "Laser Safety Training Course (annual renewal)"
+  lab_specific:
+    review_sds: true
+    review_sop: true
+    hands_on_training: true
+    other: "Manufacturer-certified operator training"
+  records_location: "Lab training folder on shared drive — /training_records/"
+
+# ── Section 11 — Approvals ──
+prior_approval_required: true
+
+# ── Section 12 — Signatures ──
+approvers:
+  - name: "Dr. Jane Smith"
+    role: "PI"
+    email: "js123@nyu.edu"
+  - name: "Dr. Ahmed Hassan"
+    role: "Lab Manager"
+    email: "ah456@nyu.edu"
+
+# ── Change History ──
+change_history:
+  - version: "1.0"
+    date: "2025-09-15"
+    author: "Dr. Jane Smith"
+    description: "Initial version"
+  - version: "1.1"
+    date: "2025-12-01"
+    author: "Dr. Jane Smith"
+    description: "Updated laser safety guidelines per new ANSI standard"
+  - version: "1.2"
+    date: "2026-03-01"
+    author: "Dr. Ahmed Hassan"
+    description: "Added immersion oil handling procedures and updated PPE requirements"

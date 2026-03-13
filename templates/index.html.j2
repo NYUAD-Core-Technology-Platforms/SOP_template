@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Standard Operating Procedures — Core Technology Platforms, NYUAD">
+    <title>SOP Index — Core Technology Platforms</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <header class="index-header">
+        <h1>Standard Operating Procedures</h1>
+        <p class="institution">Core Technology Platforms — New York University Abu Dhabi</p>
+    </header>
+
+    <main class="index-content">
+        {% for lab_key, lab_data in labs.items() %}
+        <section class="lab-section">
+            <h2>{{ lab_data.info.lab_name }}
+                <span class="lab-code">{{ lab_data.info.lab_code }}</span>
+            </h2>
+            {% if lab_data.info.location %}
+            <p class="lab-location">{{ lab_data.info.location }}</p>
+            {% endif %}
+
+            <table class="sop-index-table">
+                <thead>
+                    <tr>
+                        <th>SOP Number</th>
+                        <th>Title</th>
+                        <th>Version</th>
+                        <th>Status</th>
+                        <th>Effective Date</th>
+                        <th>Author</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sop_info in lab_data.sops %}
+                    {% set s = sop_info.data %}
+                    <tr>
+                        <td><a href="{{ sop_info.lab }}/{{ sop_info.sop }}/index.html">{{ s.sop_number }}</a></td>
+                        <td><a href="{{ sop_info.lab }}/{{ sop_info.sop }}/index.html">{{ s.title }}</a></td>
+                        <td>{{ s.version }}</td>
+                        <td><span class="status status-{{ s.status }}">{{ s.status | upper }}</span></td>
+                        <td>{{ s.effective_date }}</td>
+                        <td>{{ s.author }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        {% endfor %}
+    </main>
+
+    <footer class="sop-footer">
+        <p>Core Technology Platforms — New York University Abu Dhabi</p>
+    </footer>
+</body>
+</html>

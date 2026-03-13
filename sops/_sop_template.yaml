@@ -1,0 +1,144 @@
+# SOP Template
+# Copy this file to sops/<lab_name>/<sop_name>/sop.yaml
+# Fill in all sections below. Lines starting with # are guidance comments.
+
+title: "[SOP Title — e.g., Operation of Confocal Microscope XYZ]"
+sop_number: "[LAB_CODE]-SOP-[NUMBER]"   # e.g., AIL-SOP-001
+version: "1.0"
+effective_date: "YYYY-MM-DD"
+author: "[Author Name]"
+lab: "[lab_folder_name]"                 # Must match a folder in labs/
+
+# Status: draft | in_review | approved | archived
+status: draft
+
+# ─────────────────────────────────────────────
+# Section 1 — Emergency Shutdown Procedure
+# ─────────────────────────────────────────────
+# For instruments: outline emergency shutdown steps.
+# For chemicals: list emergency procedure for spills/exposure.
+emergency_shutdown: |
+  [Describe emergency shutdown procedure here.
+  For instruments: step-by-step shutdown.
+  For chemicals: spill/exposure response.]
+
+# ─────────────────────────────────────────────
+# Section 3 — SOP Type
+# ─────────────────────────────────────────────
+# Choose ONE of:
+#   specific_lab_procedure  — e.g., operation of a particular instrument
+#   generic_lab_procedure   — e.g., distillation, chromatography
+#   specific_chemical       — e.g., organic azides, etc.
+sop_type: "specific_lab_procedure"
+sop_type_description: "[Brief description of what this SOP covers]"
+
+# ─────────────────────────────────────────────
+# Section 4 — Process or Experiment Description
+# ─────────────────────────────────────────────
+description: |
+  [Brief introduction of the process, instrument, or chemical
+  covered in this SOP. Outline scope, particular hazards,
+  and responsibilities as applicable.]
+
+frequency: "[One time / daily / weekly / monthly]"
+duration: "[Approximate time — e.g., 2-4 hours]"
+
+# ─────────────────────────────────────────────
+# Section 5 — Safety Literature Review & Hazard Summary
+# ─────────────────────────────────────────────────────
+hazardous_substances:
+  - name: "[Substance or hazard name]"
+    hazards: "[Health and safety hazards — toxicity, flammability, etc.]"
+  # Add more items as needed:
+  # - name: "..."
+  #   hazards: "..."
+
+other_hazards:
+  - "[List non-chemical hazards — biological, electrical, mechanical, radiation]"
+  # Add more items as needed
+
+safety_guidelines: |
+  [Guidance on hazards listed above and control measures.
+  Advice to be sought from EHS.]
+
+references:
+  - "[Reference 1 — e.g., Safety Data Sheet, journal article]"
+  - "[Reference 2 — e.g., location of manuals]"
+  # Add more as needed
+
+risk_assessment:
+  performed: false                    # true or false
+  location: "[Where is the RA stored?]"
+
+# ─────────────────────────────────────────────
+# Section 6 — Storage Requirements
+# ─────────────────────────────────────────────
+storage_requirements: |
+  [For chemicals: special handling/storage requirements.
+  For instruments: storage of instrument and tools after use.]
+
+# ─────────────────────────────────────────────
+# Section 7 — PPE Required
+# ─────────────────────────────────────────────
+# Set each to true or false
+ppe:
+  street_clothing: true              # long pants, closed-toed shoes
+  gloves: false
+  gloves_type: ""                    # if gloves=true, specify type
+  safety_goggles: false
+  safety_glasses: false
+  face_shield: false
+  lab_coat: false
+  flame_resistant_lab_coat: false
+  other: ""                          # specify any other PPE
+
+# ─────────────────────────────────────────────
+# Section 8 — Waste Disposal
+# ─────────────────────────────────────────────
+waste_disposal: |
+  [Describe waste quantities, disposal procedures,
+  and any special handling/storage for waste.
+  Seek advice from EHS.]
+
+# ─────────────────────────────────────────────
+# Section 10 — Training Requirements
+# ─────────────────────────────────────────────
+training:
+  general:
+    safety_orientation: false
+    risk_assessment: false
+    lab_safety_induction: false
+    bloodborne_pathogens: false
+    xray_safety: false
+    compressed_gas: false
+    biosafety_induction: false
+    other: ""                        # specify if applicable
+  lab_specific:
+    review_sds: false                # reviewed SDS for chemicals
+    review_sop: false                # reviewed this SOP
+    hands_on_training: false         # hands-on by Research Instrumentation Specialist
+    other: ""                        # e.g., Lab Safety Manual, Laser Safety Program
+  records_location: "[Where are training records stored?]"
+
+# ─────────────────────────────────────────────
+# Section 11 — Prior Approvals
+# ─────────────────────────────────────────────
+prior_approval_required: false       # true if PI/supervisor approval needed
+
+# ─────────────────────────────────────────────
+# Section 12 — Approvers / Signatures
+# ─────────────────────────────────────────────
+approvers:
+  - name: "[Approver Name]"
+    role: "[Role — PI, Lab Manager, etc.]"
+    email: "[email]@nyu.edu"
+  # Add more approvers as needed
+
+# ─────────────────────────────────────────────
+# Change History (append new entries below)
+# ─────────────────────────────────────────────
+change_history:
+  - version: "1.0"
+    date: "YYYY-MM-DD"
+    author: "[Author Name]"
+    description: "Initial version"

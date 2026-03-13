@@ -1,0 +1,23 @@
+# Lab Information Template
+# Copy this file to labs/<your_lab_name>/lab_info.yaml
+# Fill in the fields below for your specific laboratory.
+
+lab_name: "[Full Lab Name]"
+lab_code: "[SHORT_CODE]"       # e.g., AIL, MEG, NMR
+location: "[Building, Room]"   # e.g., "Building A2, Room 105"
+
+# Lab supervisor / Principal Investigator
+supervisor:
+  name: "[Supervisor Name]"
+  email: "[email]@nyu.edu"
+  phone: "[phone number]"
+
+# Emergency assembly point for this lab
+emergency_assembly_point: "[Describe location of your EAP]"
+
+# Local notification contacts (in addition to CTP-wide contacts)
+local_contacts:
+  - name: "[Contact Name]"
+    role: "[Role, e.g., Lab Safety Coordinator]"
+    phone: "[work phone]"
+    after_hours_phone: "[after-hours phone]"

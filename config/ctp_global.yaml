@@ -1,0 +1,36 @@
+# CTP-Wide Shared Information
+# This file contains information shared across ALL SOPs.
+# Changes here will propagate to every SOP on rebuild.
+
+institution: "New York University Abu Dhabi"
+department: "Core Technology Platforms"
+
+director:
+  name: "[Director Name]"
+  email: "director@nyu.edu"
+  phone: "02-628-XXXX"
+
+# Emergency contacts shared across all labs
+emergency_contacts:
+  emergency_services: "999"
+  public_safety: "02-628-5555"
+  ehs:
+    name: "Dr. Tehmina Kazmi"
+    phone: "02-628-8102"
+    email: "ehs@nyu.edu"
+  facilities:
+    name: "Michael Davis"
+    email: "md149@nyu.edu"
+    phone: "02-628-4051"
+    mobile: "050-621-5771"
+  lab_operations:
+    name: "Tariq Abu Issa"
+    email: "tia1@nyu.edu"
+    phone: "050-5636228"
+
+# Branding
+branding:
+  logo: "assets/nyu_logo.png"
+  color_primary: "#57068C"
+  color_secondary: "#8900e1"
+  footer_text: "Core Technology Platforms — New York University Abu Dhabi"

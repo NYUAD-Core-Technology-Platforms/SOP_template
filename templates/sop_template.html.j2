@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SOP: {{ sop.title }} — {{ ctp.department }}, {{ ctp.institution }}">
+    <title>{{ sop.sop_number }} — {{ sop.title }}</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <header class="sop-header">
+        <div class="header-brand">
+            <h1>{{ ctp.department }}</h1>
+            <p class="institution">{{ ctp.institution }}</p>
+        </div>
+        <div class="header-meta">
+            <span class="sop-number">{{ sop.sop_number }}</span>
+            <span class="status status-{{ sop.status }}">{{ sop.status | upper }}</span>
+        </div>
+    </header>
+
+    <main class="sop-content">
+        <div class="sop-title-block">
+            <h2>{{ sop.title }}</h2>
+            <table class="meta-table">
+                <tr><th>Version</th><td>{{ sop.version }}</td><th>Effective Date</th><td>{{ sop.effective_date }}</td></tr>
+                <tr><th>Author</th><td>{{ sop.author }}</td><th>Lab</th><td>{{ lab.lab_name }} ({{ lab.lab_code }})</td></tr>
+                <tr><th>Location</th><td colspan="3">{{ lab.location }}</td></tr>
+            </table>
+        </div>
+
+        <!-- SCOPE -->
+        <section class="sop-section" id="scope">
+            <h3>Scope of Document</h3>
+            <div class="scope-type">
+                {% set sop_type_map = {
+                    'specific_lab_procedure': 'Specific laboratory procedure or experiment',
+                    'generic_lab_procedure': 'Generic laboratory procedure',
+                    'specific_chemical': 'Specific chemical or class of chemicals'
+                } %}
+                <p class="checkbox checked">{{ sop_type_map.get(sop.sop_type, sop.sop_type) }}</p>
+                <p>{{ sop.sop_type_description }}</p>
+            </div>
+        </section>
+
+        <!-- 1. EMERGENCY SHUTDOWN -->
+        <section class="sop-section" id="emergency-shutdown">
+            <h3>1. Emergency Shutdown Procedure</h3>
+            <div class="emergency-box">
+                {{ sop.emergency_shutdown | replace('\n', '<br>') }}
+            </div>
+        </section>
+
+        <!-- 2. EMERGENCY CONTACTS -->
+        <section class="sop-section" id="emergency-contacts">
+            <h3>2. Emergency Contacts</h3>
+            <table class="contacts-table">
+                <tr><th>Emergency Services</th><td class="emergency-number">{{ ctp.emergency_contacts.emergency_services }}</td></tr>
+                <tr><th>Public Safety</th><td>{{ ctp.emergency_contacts.public_safety }}</td></tr>
+                <tr><th>EHS</th><td>{{ ctp.emergency_contacts.ehs.name }} — {{ ctp.emergency_contacts.ehs.phone }}</td></tr>
+                <tr><th>Facilities</th><td>{{ ctp.emergency_contacts.facilities.name }} — {{ ctp.emergency_contacts.facilities.email }} — {{ ctp.emergency_contacts.facilities.phone }}</td></tr>
+                <tr><th>Lab Supervisor</th><td>{{ lab.supervisor.name }} — {{ lab.supervisor.phone }}</td></tr>
+                <tr><th>Emergency Assembly Point</th><td>{{ lab.emergency_assembly_point }}</td></tr>
+            </table>
+            {% if lab.local_contacts %}
+            <h4>Local Notification Contacts</h4>
+            <table class="contacts-table">
+                <tr><th>Name</th><th>Role</th><th>Phone</th><th>After Hours</th></tr>
+                {% for contact in lab.local_contacts %}
+                <tr>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.role }}</td>
+                    <td>{{ contact.phone }}</td>
+                    <td>{{ contact.after_hours_phone | default('N/A') }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        </section>
+
+        <!-- 4. DESCRIPTION -->
+        <section class="sop-section" id="description">
+            <h3>4. Process or Experiment Description</h3>
+            <p>{{ sop.description | replace('\n', '<br>') }}</p>
+            <div class="info-grid">
+                <div><strong>Frequency:</strong> {{ sop.frequency }}</div>
+                <div><strong>Duration:</strong> {{ sop.duration }}</div>
+            </div>
+        </section>
+
+        <!-- 5. HAZARDS -->
+        <section class="sop-section" id="hazards">
+            <h3>5. Safety Literature Review &amp; Hazard Summary</h3>
+
+            <h4>Hazardous Substances</h4>
+            {% if sop.hazardous_substances %}
+            <table class="hazards-table">
+                <tr><th>Substance</th><th>Hazards</th></tr>
+                {% for sub in sop.hazardous_substances %}
+                <tr><td>{{ sub.name }}</td><td>{{ sub.hazards }}</td></tr>
+                {% endfor %}
+            </table>
+            {% else %}
+            <p>None identified.</p>
+            {% endif %}
+
+            <h4>Other Hazards</h4>
+            {% if sop.other_hazards %}
+            <ul>
+                {% for hazard in sop.other_hazards %}
+                <li>{{ hazard }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>None identified.</p>
+            {% endif %}
+
+            <h4>Safety Guidelines</h4>
+            <div class="safety-box">
+                {{ sop.safety_guidelines | replace('\n', '<br>') }}
+            </div>
+
+            <h4>References</h4>
+            <ul>
+                {% for ref in sop.references %}
+                <li>{{ ref }}</li>
+                {% endfor %}
+            </ul>
+
+            <h4>Risk Assessment</h4>
+            <p>RA performed: <strong>{{ 'Yes' if sop.risk_assessment.performed else 'No' }}</strong></p>
+            {% if sop.risk_assessment.location %}
+            <p>Location: {{ sop.risk_assessment.location }}</p>
+            {% endif %}
+        </section>
+
+        <!-- 6. STORAGE -->
+        <section class="sop-section" id="storage">
+            <h3>6. Storage Requirements</h3>
+            <p>{{ sop.storage_requirements | replace('\n', '<br>') }}</p>
+        </section>
+
+        <!-- 7. PPE + PROCEDURE -->
+        <section class="sop-section" id="procedure">
+            <h3>7. Step-by-Step Operating Procedure</h3>
+
+            <h4>PPE Required</h4>
+            <div class="ppe-grid">
+                <span class="checkbox {{ 'checked' if sop.ppe.street_clothing }}">Appropriate street clothing</span>
+                <span class="checkbox {{ 'checked' if sop.ppe.gloves }}">Gloves{% if sop.ppe.gloves_type %} ({{ sop.ppe.gloves_type }}){% endif %}</span>
+                <span class="checkbox {{ 'checked' if sop.ppe.safety_goggles }}">Safety goggles</span>
+                <span class="checkbox {{ 'checked' if sop.ppe.safety_glasses }}">Safety glasses</span>
+                <span class="checkbox {{ 'checked' if sop.ppe.face_shield }}">Face shield</span>
+                <span class="checkbox {{ 'checked' if sop.ppe.lab_coat }}">Lab coat</span>
+                <span class="checkbox {{ 'checked' if sop.ppe.flame_resistant_lab_coat }}">Flame-resistant lab coat</span>
+                {% if sop.ppe.other %}
+                <span class="checkbox checked">Other: {{ sop.ppe.other }}</span>
+                {% endif %}
+            </div>
+
+            <h4>Procedure</h4>
+            <div class="procedure-content">
+                {{ procedure_html }}
+            </div>
+        </section>
+
+        <!-- 8. WASTE -->
+        <section class="sop-section" id="waste">
+            <h3>8. Waste Disposal</h3>
+            <p>{{ sop.waste_disposal | replace('\n', '<br>') }}</p>
+        </section>
+
+        <!-- 9. EMERGENCY PROCEDURES -->
+        <section class="sop-section" id="emergency-procedures">
+            <h3>9. Emergency Procedures</h3>
+
+            <div class="emergency-box">
+                <h4>Health-Threatening Emergencies</h4>
+                <ol>
+                    <li>Call <strong>{{ ctp.emergency_contacts.emergency_services }}</strong></li>
+                    <li>Alert people in the vicinity and activate local alarm systems</li>
+                    <li>Evacuate to Emergency Assembly Point: <strong>{{ lab.emergency_assembly_point }}</strong></li>
+                    <li>Remain nearby to advise emergency responders</li>
+                    <li>Once personal safety established, call Public Safety: <strong>{{ ctp.emergency_contacts.public_safety }}</strong></li>
+                </ol>
+            </div>
+
+            <h4>Injuries and Exposures</h4>
+            <ul>
+                <li>Remove injured individual from the area (if safe to do so)</li>
+                <li>Call {{ ctp.emergency_contacts.emergency_services }} if immediate medical attention required</li>
+                <li>Report any exposure to EH&amp;S</li>
+                <li>Flush contamination from eyes/skin for minimum 15 minutes</li>
+                <li>Bring copies of SDSs for involved chemicals to hospital</li>
+            </ul>
+
+            <h4>Non-Health-Threatening Emergencies</h4>
+            <p>For non-serious injuries, contact {{ ctp.emergency_contacts.ehs.name }}: {{ ctp.emergency_contacts.ehs.phone }}</p>
+
+            <h4>Building Maintenance Emergencies</h4>
+            <p>Contact Facilities: {{ ctp.emergency_contacts.facilities.name }} — {{ ctp.emergency_contacts.facilities.phone }}</p>
+        </section>
+
+        <!-- 10. TRAINING -->
+        <section class="sop-section" id="training">
+            <h3>10. Training Requirements</h3>
+
+            <h4>General Training</h4>
+            <div class="training-grid">
+                {% set general = sop.training.general %}
+                <span class="checkbox {{ 'checked' if general.safety_orientation }}">General Safety Orientation</span>
+                <span class="checkbox {{ 'checked' if general.risk_assessment }}">Safety Risk Assessment Training</span>
+                <span class="checkbox {{ 'checked' if general.lab_safety_induction }}">Laboratory Safety Induction</span>
+                <span class="checkbox {{ 'checked' if general.bloodborne_pathogens }}">Blood borne pathogens</span>
+                <span class="checkbox {{ 'checked' if general.xray_safety }}">Basic X-Ray Safety Training</span>
+                <span class="checkbox {{ 'checked' if general.compressed_gas }}">Compressed Gases Safety</span>
+                <span class="checkbox {{ 'checked' if general.biosafety_induction }}">Biosafety Induction Training</span>
+                {% if general.other %}
+                <span class="checkbox checked">Other: {{ general.other }}</span>
+                {% endif %}
+            </div>
+
+            <h4>Lab-Specific Training</h4>
+            <div class="training-grid">
+                {% set lab_spec = sop.training.lab_specific %}
+                <span class="checkbox {{ 'checked' if lab_spec.review_sds }}">Review of SDS for chemicals</span>
+                <span class="checkbox {{ 'checked' if lab_spec.review_sop }}">Review of this SOP</span>
+                <span class="checkbox {{ 'checked' if lab_spec.hands_on_training }}">Hands-on training by Specialist</span>
+                {% if lab_spec.other %}
+                <span class="checkbox checked">Other: {{ lab_spec.other }}</span>
+                {% endif %}
+            </div>
+
+            <p><strong>Training records:</strong> {{ sop.training.records_location }}</p>
+        </section>
+
+        <!-- 11. PRIOR APPROVALS -->
+        <section class="sop-section" id="approvals">
+            <h3>11. Prior Approvals</h3>
+            {% if sop.prior_approval_required %}
+            <p class="checkbox checked"><strong>Prior approval from the PI or lab supervisor is required for this procedure.</strong></p>
+            {% else %}
+            <p>No prior approval required.</p>
+            {% endif %}
+        </section>
+
+        <!-- 12. SIGNATURES -->
+        <section class="sop-section" id="signatures">
+            <h3>12. Signatures</h3>
+            {% if sop.approvers %}
+            <table class="signatures-table">
+                <thead>
+                    <tr><th>Name</th><th>Role</th><th>Email</th><th>Date</th><th>Signature</th></tr>
+                </thead>
+                <tbody>
+                    {% for approver in sop.approvers %}
+                    <tr>
+                        <td>{{ approver.name }}</td>
+                        <td>{{ approver.role }}</td>
+                        <td>{{ approver.email }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+        </section>
+
+        <!-- CHANGE HISTORY -->
+        {% if sop.change_history %}
+        <section class="sop-section" id="change-history">
+            <h3>Change History</h3>
+            <table class="history-table">
+                <thead>
+                    <tr><th>Version</th><th>Date</th><th>Author</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    {% for entry in sop.change_history %}
+                    <tr>
+                        <td>{{ entry.version }}</td>
+                        <td>{{ entry.date }}</td>
+                        <td>{{ entry.author }}</td>
+                        <td>{{ entry.description }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        {% endif %}
+    </main>
+
+    <footer class="sop-footer">
+        <p>{{ ctp.branding.footer_text }}</p>
+        <p class="docx-link">
+            <a href="../../docx/{{ sop.lab }}/{{ sop.sop_number }}_v{{ sop.version }}.docx">Download DOCX</a>
+        </p>
+    </footer>
+</body>
+</html>

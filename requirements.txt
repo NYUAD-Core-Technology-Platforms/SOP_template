@@ -1,0 +1,5 @@
+PyYAML>=6.0
+Jinja2>=3.1
+python-docx>=1.0
+jsonschema>=4.17
+Markdown>=3.5

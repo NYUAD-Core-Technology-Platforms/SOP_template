@@ -1,0 +1,149 @@
+# JSON Schema for SOP Data
+# Used by validate.py to check sops/<lab>/<sop>/sop.yaml
+
+type: object
+required:
+  - title
+  - sop_number
+  - version
+  - effective_date
+  - author
+  - lab
+  - status
+  - sop_type
+  - description
+  - ppe
+
+properties:
+  title:
+    type: string
+    description: "SOP title"
+  sop_number:
+    type: string
+    description: "Unique SOP identifier (e.g., AIL-SOP-001)"
+  version:
+    type: string
+    description: "Version number"
+  effective_date:
+    type: string
+    description: "Date in YYYY-MM-DD format"
+  author:
+    type: string
+    description: "Author name"
+  lab:
+    type: string
+    description: "Lab folder name — must match a folder in labs/"
+  status:
+    type: string
+    enum: [draft, in_review, approved, archived]
+    description: "Current lifecycle status"
+
+  emergency_shutdown:
+    type: string
+  sop_type:
+    type: string
+    enum: [specific_lab_procedure, generic_lab_procedure, specific_chemical]
+  sop_type_description:
+    type: string
+  description:
+    type: string
+  frequency:
+    type: string
+  duration:
+    type: string
+
+  hazardous_substances:
+    type: array
+    items:
+      type: object
+      required: [name, hazards]
+      properties:
+        name: { type: string }
+        hazards: { type: string }
+
+  other_hazards:
+    type: array
+    items:
+      type: string
+
+  safety_guidelines:
+    type: string
+
+  references:
+    type: array
+    items:
+      type: string
+
+  risk_assessment:
+    type: object
+    required: [performed]
+    properties:
+      performed: { type: boolean }
+      location: { type: string }
+
+  storage_requirements:
+    type: string
+
+  ppe:
+    type: object
+    required: [street_clothing]
+    properties:
+      street_clothing: { type: boolean }
+      gloves: { type: boolean }
+      gloves_type: { type: string }
+      safety_goggles: { type: boolean }
+      safety_glasses: { type: boolean }
+      face_shield: { type: boolean }
+      lab_coat: { type: boolean }
+      flame_resistant_lab_coat: { type: boolean }
+      other: { type: string }
+
+  waste_disposal:
+    type: string
+
+  training:
+    type: object
+    properties:
+      general:
+        type: object
+        properties:
+          safety_orientation: { type: boolean }
+          risk_assessment: { type: boolean }
+          lab_safety_induction: { type: boolean }
+          bloodborne_pathogens: { type: boolean }
+          xray_safety: { type: boolean }
+          compressed_gas: { type: boolean }
+          biosafety_induction: { type: boolean }
+          other: { type: string }
+      lab_specific:
+        type: object
+        properties:
+          review_sds: { type: boolean }
+          review_sop: { type: boolean }
+          hands_on_training: { type: boolean }
+          other: { type: string }
+      records_location: { type: string }
+
+  prior_approval_required:
+    type: boolean
+
+  approvers:
+    type: array
+    items:
+      type: object
+      required: [name, role, email]
+      properties:
+        name: { type: string }
+        role: { type: string }
+        email: { type: string }
+
+  change_history:
+    type: array
+    items:
+      type: object
+      required: [version, date, author, description]
+      properties:
+        version: { type: string }
+        date: { type: string }
+        author: { type: string }
+        description: { type: string }

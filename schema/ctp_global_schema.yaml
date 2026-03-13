@@ -1,0 +1,58 @@
+# JSON Schema for CTP Global Configuration
+# Used by validate.py to check config/ctp_global.yaml
+
+type: object
+required:
+  - institution
+  - department
+  - director
+  - emergency_contacts
+
+properties:
+  institution:
+    type: string
+    description: "Full institution name"
+  department:
+    type: string
+    description: "Department name"
+  director:
+    type: object
+    required: [name, email]
+    properties:
+      name: { type: string }
+      email: { type: string }
+      phone: { type: string }
+  emergency_contacts:
+    type: object
+    required: [emergency_services, public_safety, ehs, facilities]
+    properties:
+      emergency_services: { type: string }
+      public_safety: { type: string }
+      ehs:
+        type: object
+        required: [name, phone]
+        properties:
+          name: { type: string }
+          phone: { type: string }
+          email: { type: string }
+      facilities:
+        type: object
+        required: [name, email, phone]
+        properties:
+          name: { type: string }
+          email: { type: string }
+          phone: { type: string }
+          mobile: { type: string }
+      lab_operations:
+        type: object
+        properties:
+          name: { type: string }
+          email: { type: string }
+          phone: { type: string }
+  branding:
+    type: object
+    properties:
+      logo: { type: string }
+      color_primary: { type: string }
+      color_secondary: { type: string }
+      footer_text: { type: string }

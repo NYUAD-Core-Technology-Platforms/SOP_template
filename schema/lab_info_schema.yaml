@@ -1,0 +1,42 @@
+# JSON Schema for Lab Information
+# Used by validate.py to check labs/<lab_name>/lab_info.yaml
+
+type: object
+required:
+  - lab_name
+  - lab_code
+  - location
+  - supervisor
+  - emergency_assembly_point
+
+properties:
+  lab_name:
+    type: string
+    description: "Full laboratory name"
+  lab_code:
+    type: string
+    description: "Short code for the lab (e.g., AIL, MEG)"
+    pattern: "^[A-Z]{2,6}$"
+  location:
+    type: string
+    description: "Building and room number"
+  supervisor:
+    type: object
+    required: [name, email]
+    properties:
+      name: { type: string }
+      email: { type: string }
+      phone: { type: string }
+  emergency_assembly_point:
+    type: string
+    description: "Location of emergency assembly point"
+  local_contacts:
+    type: array
+    items:
+      type: object
+      required: [name, role, phone]
+      properties:
+        name: { type: string }
+        role: { type: string }
+        phone: { type: string }
+        after_hours_phone: { type: string }

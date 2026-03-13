@@ -1,0 +1,23 @@
+# Advanced Imaging Lab — Lab Information
+# This data is shared across all SOPs for this lab.
+
+lab_name: "Advanced Imaging Lab"
+lab_code: "AIL"
+location: "Building A2, Room 105"
+
+supervisor:
+  name: "Dr. Jane Smith"
+  email: "js123@nyu.edu"
+  phone: "02-628-1234"
+
+emergency_assembly_point: "Building A2 main entrance courtyard"
+
+local_contacts:
+  - name: "Dr. Jane Smith"
+    role: "Principal Investigator"
+    phone: "02-628-1234"
+    after_hours_phone: "050-123-4567"
+  - name: "John Doe"
+    role: "Lab Safety Coordinator"
+    phone: "02-628-5678"
+    after_hours_phone: "050-234-5678"
