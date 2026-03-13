@@ -1,0 +1,195 @@
+# ============================================================================
+# SOP: Operation of KIT-MEG System
+# Lab: Brain Imaging Lab
+# SOP Number: CTP-BI-014
+# ============================================================================
+
+title: "Operation of KIT-MEG System"
+sop_number: "CTP-BI-014"
+lab: "biomedical_imaging"
+version: "1.0"
+effective_date: "2026-03-13"
+status: "approved"
+author: "Hadi Zaatiti"
+
+# --- Scope ---
+sop_type: "specific_lab_procedure"
+sop_type_description: >
+  This document applies to all personnel involved in experiments using the
+  KIT-MEG system at NYUAD. It outlines basic operating procedures and emergency
+  protocols. This Standard Operating Procedure (SOP) specifically addresses
+  the use of the KIT-MEG (Magnetoencephalography) system developed by Kyoto
+  Institute of Technology. Please note, this system is restricted to adult
+  participants; underage participants are NOT permitted.
+
+# --- 1. Emergency Shutdown ---
+emergency_shutdown: |
+  In the event of an emergency while the MEG system is on:
+  1. If there is a human subject in the magnetically shielded room (MSR), immediately open the door using the emergency release (instructions posted on the door of the MSR) to allow them to leave.
+  2. On the MEG Main PC, open MEG160 (found on the Desktop).
+  3. In the menu bar at the top of the program window, click: Acquire → Shutdown DAQ → Shut Down Data Acquisition Equipment.
+  4. If the system is turned off at the time of the emergency, no additional shutdown procedure is required.
+
+# --- 4. Process Description ---
+description: |
+  This procedure provides users with instructions on the proper use of the
+  magnetoencephalogram (MEG) and the corresponding data acquisition (DAQ)
+  system, located in Room 008 of Building A2, New York University Abu Dhabi.
+
+  The MEG is used to measure very small changes in magnetic fields, most often
+  in studies of human brain function. The system consists of the following
+  components:
+  - 256 channel MEG system, including a supine bed, helmet, and liquid helium Dewar
+  - 1 Magnetically-shielded room
+  - 4 DAQ PCs and a signal processing system
+  - 1 MEG Main PC for recording control
+  - 1 Stimulus PC for experiment control
+  - 1 head position monitoring system
+  - Video and audio monitoring systems
+
+  The KIT-MEG is equipped with a pick up coil which is a coaxial type
+  first-order gradiometer with 50-mm base line. The magnetic field resolution
+  of the system is about 4 fT/Hz^0.5. The unique feature of the system is the
+  gantry-free horizontal dewar, fabricated through the "ship-in-a-bottle approach".
+
+frequency: "as needed"
+duration: "1-2 hours per session"
+
+# --- 5. Safety Literature Review & Hazard Summary ---
+hazardous_substances:
+  - name: "Liquid Helium"
+    hazards: >
+      Damage to the helium Dewar could cause liquid helium leakage and boil off.
+      Extended exposure to gaseous helium may cause frostbite. Inhalation in
+      excessive amounts can cause dizziness, nausea, vomiting, loss of
+      consciousness, and death.
+  - name: "Compressed Air (MSR door)"
+    hazards: >
+      Failure of the building's air compression system or a power outage may
+      result in difficulty opening the door to the magnetically shielded room,
+      which could prevent individuals from quickly exiting the room.
+
+other_hazards:
+  - "Electricity: The MEG lab houses multiple electrical components. Mishandling may cause shock leading to minor to severe injuries, and death."
+  - "Fire: Electrical components could malfunction or be mishandled, leading to fire risk."
+  - "Moving Parts: The MSR door closes with a compressed air system. Improper procedures could cause limb injuries requiring off-site medical treatment."
+  - "Slip / Trip / Fall: Individuals could slip/trip/fall on materials left on the ground."
+  - "Confined Spaces: The MSR is a confined space; the door must be closed during all recordings. Individuals inside may feel anxiety or be temporarily stuck."
+
+safety_guidelines: |
+  - Do not attempt to fill the helium tank or adjust the helium level unless supervised or approved by the responsible person or approved contractor personnel.
+  - Do not shock or otherwise damage the liquid helium Dewar.
+  - Regularly check the surface of the Dewar for scratches/cracks.
+  - Do not adjust or tamper with any electronic components connecting the SQUID sensors to the DAQ system without direct supervision or approval from the responsible person.
+  - Ensure that the emergency and manual release instructions are always posted on the external surface of the MSR, immediately next to the door.
+  - Ensure that the manual release key is located on the external surface of the MSR, immediately next to the door.
+  - In the event of an earthquake, ensure that any individual inside the MSR is immediately removed.
+  - Do not leave the laboratory while a research participant under your supervision is in the MSR.
+  - In the case of a power failure, contact the responsible person.
+
+references:
+  - "New NYUAD MEG Lab Manual"
+  - "https://drive.google.com/drive/u/0/folders/1twdv0TF2nTZzUj2tnUa6J8Q1mNhdhwHQ"
+
+risk_assessment:
+  performed: true
+  reference_number: "2692RA"
+  location: "AssessNET, MEG lab (room 008, A2), shared with the user, CTP drive"
+
+# --- 6. Storage Requirements ---
+storage_requirements: |
+  At the end of the experiment, place all accessories used during the session
+  back to their appropriate location.
+
+  All handling of the liquid helium is to be done by approved personnel employed
+  by the external contractor who provides the service (Air Products Gulf Gas LLC).
+
+  Components of the MEG system should remain in their current location and
+  configuration unless changes are approved by the responsible person.
+
+# --- 7. PPE ---
+ppe:
+  street_clothing: true
+  gloves: true
+  gloves_type: "as appropriate"
+  safety_goggles: false
+  safety_glasses: false
+  face_shield: false
+  lab_coat: false
+  flame_resistant_lab_coat: false
+  other: ""
+
+# --- 8. Waste Disposal ---
+waste_disposal: |
+  The following items must be disposed of once they come in contact with human participants:
+  - Tissues
+  - Disposable ear pieces/head phones
+  - Tape
+
+  The following items must be wiped with 70% isopropyl alcohol solution for sterilization:
+  - Head position indicator coils
+  - Response boxes
+
+  The following items must be washed in a traditional laundry machine:
+  - The bedding and blankets kept within the MSR
+  - Hospital scrubs worn by research participants
+
+  Place dirty linen in the special container (dirty linen).
+
+# --- 10. Training ---
+training:
+  general:
+    safety_orientation: false
+    risk_assessment: false
+    lab_safety_induction: false
+    bloodborne_pathogens: false
+    xray_safety: false
+    compressed_gas: false
+    biosafety_induction: false
+    other: >
+      In compliance with the Ethics Review Board (ERB) of NYUAD, all researchers
+      working with human subjects must complete the Human Subjects Research
+      training available through the Collaborative Institutional Training
+      Initiative (CITI). All research protocols must be approved by the
+      appropriate ERBs.
+  lab_specific:
+    review_sds: false
+    review_sop: true
+    hands_on_training: true
+    other: "CITI ERB training"
+  records_location: "CTP drive, SDS, SOP and RA are located in the room"
+  training_content:
+    - "Safe and independent operation of the instrument"
+    - "Emergency procedure"
+    - "Standard sample measurement and validation of the results"
+    - "Safety briefing: Operators are made aware of risks and control measures"
+    - "Assessment of the competency of the user"
+  evidence_of_competency: >
+    Once the training is completed, CTP personnel will assess the competency
+    of the user before granting him/her access to the system. The authorization
+    to book the system serves as a certificate of competency. Failure to adhere
+    to this SOP will result in the withdrawal of access to the MEG-KIT system.
+
+# --- 11. Prior Approvals ---
+prior_approval_required: true
+prior_approval_details: >
+  All research projects involving human participants must obtain prior approval
+  from the ERB committee. The integration of the MEG-KIT system into the ERB
+  protocol is mandatory and approval must be secured before implementation.
+  The MEG-KIT is exclusively designated for adult participants.
+
+# --- 12. Signatures / Approvers ---
+approvers:
+  - name: "Hadi Zaatiti"
+    role: "Responsible Person"
+    email: "hz3752@nyu.edu"
+  - name: "Reza Rowshan"
+    role: "Director of Laboratory"
+    email: "rr130@nyu.edu"
+
+# --- Change History ---
+change_history:
+  - version: "1.0"
+    date: "2026-03-13"
+    author: "Hadi Zaatiti"
+    description: "Initial migration to SOP platform"

@@ -1,0 +1,150 @@
+# ============================================================================
+# SOP: QD Helium Liquefier — Helium Refilling Procedure
+# Lab: Brain Imaging Lab
+# SOP Number: CTP-BI-015
+# ============================================================================
+
+title: "QD Helium Liquefier — Helium Refilling Procedure"
+sop_number: "CTP-BI-015"
+lab: "biomedical_imaging"
+version: "1.0"
+effective_date: "2026-03-13"
+status: "approved"
+author: "Hadi Zaatiti"
+
+# --- Scope ---
+sop_type: "specific_lab_procedure"
+sop_type_description: >
+  This document applies to all personnel involved in filling liquid helium
+  for the purifier (ATP) and Liquefier (ATL) systems (designed and installed
+  by Quantum Design, Germany).
+
+# --- 1. Emergency Shutdown ---
+emergency_shutdown: |
+  There is no central switch for the entire system. Each unit (ATL, ATP, and MP Hub) can be turned off using a toggle located on the rear of the machine or at the wall socket. The BPC (located outside the soundproof enclosure) does not have its own switch and must be turned off at the socket.
+
+  Without electrical power, the ATL can store helium for approximately 12 hours without losses. After this period, helium will gradually be released into the atmosphere through the safety valve. The same applies to the ATP. Gas from the MEG will also be released 10-15 minutes after the MP Hub is turned off.
+
+  QD did not provide a specific emergency power shutdown procedure, as the machines normally return to their original state once power is restored. If the machines fail to resume normal operation after a shutdown, follow these steps on the LCD screens:
+  - ATL: MODE → LIQUEFY → SLOW
+  - ATP: MODE → PURIFY or MODE → COOLDOWN (if the "purify" button is unavailable for long shutdowns with temperatures above 30K)
+  - For the MP Hub and BPC, no special commands are required.
+
+  If the chilled water supply is interrupted or the water temperature becomes too high, the compressor will overheat and stop. The system will automatically attempt to restart the compressor five times, every 20 minutes. After these attempts, a manual restart (turning the unit off and on) will be necessary.
+
+# --- 4. Process Description ---
+description: |
+  This procedure covers the helium refilling process for the QD Helium
+  Liquefier system used to support the MEG facility. The system includes
+  an ATL (Advanced Technology Liquefier), ATP (Advanced Technology Purifier),
+  MP Hub (Medium Pressure Hub), and BPC (Back Pressure Controller).
+
+  The procedure involves transferring liquid helium from the ATL to the MEG
+  system's dewar, monitoring levels, and returning the ATL to its operational
+  configuration after refilling.
+
+frequency: "weekly"
+duration: "1 hour"
+
+# --- 5. Safety Literature Review & Hazard Summary ---
+hazardous_substances:
+  - name: "Liquid Helium"
+    hazards: >
+      Cold Burns/Frostbite: Liquid helium is extremely cold (~4K or -269°C).
+      Direct contact with skin or eyes can cause severe frostbite or tissue damage.
+  - name: "Helium Gas"
+    hazards: >
+      Asphyxiation: Helium is an inert gas that can displace oxygen in enclosed
+      spaces. A helium leak could cause oxygen levels to drop, leading to
+      suffocation.
+  - name: "Pressurized Helium"
+    hazards: >
+      Pressure Hazards: Helium is stored at very high pressures in cylinders
+      and tanks. Mishandling can lead to pressure-related accidents, including
+      explosions. Rapid expansion of liquid helium into gas can cause
+      pressure build-up in closed systems.
+
+other_hazards:
+  - "Electrical Shock: The QD liquefier and MEG machine involve high-voltage components. Improper handling can result in electric shocks."
+  - "Fire Hazards: Faulty wiring, overheating components, or malfunctioning equipment could cause fires."
+  - "High Noise Levels: Operation of compressors and cryogenic pumps can generate high noise levels, leading to hearing damage over time."
+  - "Moving Parts: The liquefier and cooling systems may have moving parts (pumps, compressors) that pose a risk of injury if touched while operational."
+
+safety_guidelines: |
+  - Do not attempt to fill the helium tank or adjust the helium level unless supervised or approved by the responsible person or approved contractor personnel.
+  - Regularly check the surface of the Dewar for scratches/cracks.
+  - Do not shock or otherwise damage the liquid helium Dewar.
+  - Use hearing protection (earplugs or earmuffs) when working near the equipment.
+  - Keep guards in place around moving parts and ensure proper lockout/tagout procedures during maintenance.
+  - Regularly inspect electrical systems for faults; ensure fire extinguishers suitable for electrical fires are readily available.
+  - Ensure proper grounding of equipment; avoid working on electrical components without proper isolation or training.
+  - Ensure pressure relief valves are functioning; follow refilling procedures carefully.
+  - Use pressure regulators and check the integrity of cylinders, pipes, and connections. Never overfill or mishandle pressurized equipment.
+  - Ensure proper ventilation and use oxygen monitors to detect oxygen displacement. Evacuate the area if oxygen levels drop below safe limits.
+  - Wear appropriate cryogenic gloves, face shields, and protective clothing to avoid contact with liquid helium or cold surfaces.
+
+references:
+  - "QD UKI method statement - Montana Instruments Cryostation"
+  - "https://drive.google.com/drive/u/0/folders/1EUtsM9DWXfrP7CmBhqCmiTfvKbTYVCKw"
+
+risk_assessment:
+  performed: true
+  reference_number: "2842RA"
+  location: "AssessNET, MEG lab (room 008, A2), shared with the user, CTP drive"
+
+# --- 6. Storage Requirements ---
+storage_requirements: |
+  All handling of the liquid helium is to be done by approved personnel employed
+  by the external contractor who provides the service (Air Products Gulf Gas LLC).
+
+# --- 7. PPE ---
+ppe:
+  street_clothing: true
+  gloves: true
+  gloves_type: "cryogenic gloves"
+  safety_goggles: false
+  safety_glasses: false
+  face_shield: true
+  lab_coat: true
+  flame_resistant_lab_coat: false
+  other: ""
+
+# --- 8. Waste Disposal ---
+waste_disposal: "N/A"
+
+# --- 10. Training ---
+training:
+  general:
+    safety_orientation: false
+    risk_assessment: false
+    lab_safety_induction: false
+    bloodborne_pathogens: false
+    xray_safety: false
+    compressed_gas: false
+    biosafety_induction: false
+    other: ""
+  lab_specific:
+    review_sds: false
+    review_sop: false
+    hands_on_training: true
+    other: "Compressed Gas Safety Program"
+  records_location: "CTP drive, SDS, SOP and RA are located in the room"
+
+# --- 11. Prior Approvals ---
+prior_approval_required: false
+
+# --- 12. Signatures / Approvers ---
+approvers:
+  - name: "Hadi Zaatiti"
+    role: "Responsible Person"
+    email: "hz3752@nyu.edu"
+  - name: "Reza Rowshan"
+    role: "Director of Laboratory"
+    email: "rr130@nyu.edu"
+
+# --- Change History ---
+change_history:
+  - version: "1.0"
+    date: "2026-03-13"
+    author: "Hadi Zaatiti"
+    description: "Initial migration to SOP platform"

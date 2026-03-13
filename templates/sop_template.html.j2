@@ -27,6 +27,9 @@
                 <tr><th>Author</th><td>{{ sop.author }}</td><th>Lab</th><td>{{ lab.lab_name }} ({{ lab.lab_code }})</td></tr>
                 <tr><th>Location</th><td colspan="3">{{ lab.location }}</td></tr>
             </table>
+            <p class="docx-link top-download">
+                <a href="../../docx/{{ sop.lab }}/{{ sop.sop_number }}_v{{ sop.version }}.docx">📄 Download DOCX</a>
+            </p>
         </div>
 
         <!-- SCOPE -->

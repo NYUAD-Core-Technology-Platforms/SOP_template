@@ -32,6 +32,7 @@
                         <th>Status</th>
                         <th>Effective Date</th>
                         <th>Author</th>
+                        <th>Download</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +45,7 @@
                         <td><span class="status status-{{ s.status }}">{{ s.status | upper }}</span></td>
                         <td>{{ s.effective_date }}</td>
                         <td>{{ s.author }}</td>
+                        <td><a href="docx/{{ sop_info.lab }}/{{ s.sop_number }}_v{{ s.version }}.docx" class="download-link" title="Download DOCX">📄 DOCX</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

@@ -1,0 +1,31 @@
+# Lab: Brain Imaging Lab
+# Location: Building A2, Room 008, NYUAD
+
+lab_name: "Biomedical Imaging Lab"
+lab_code: "BI"
+location: "Building A2, Room 008"
+emergency_assembly_point: "Building A2 main entrance area"
+
+supervisor:
+  name: "Hadi Zaatiti"
+  email: "hz3752@nyu.edu"
+  phone: "056 275 4921"
+
+local_contacts:
+  - name: "Hadi Zaatiti"
+    role: "Responsible Person"
+    email: "hz3752@nyu.edu"
+    phone: "056 275 4921"
+    after_hours_phone: "056 275 4921"
+  - name: "Osama Abdullah"
+    role: "CTP Member"
+    email: "oa22@nyu.edu"
+    phone: "056 679 3378"
+  - name: "Haidee Paterson"
+    role: "CTP Member"
+    email: "hp42@nyu.edu"
+    phone: "02 628 7635"
+  - name: "Tariq Abu Issa"
+    role: "Laboratory Operations"
+    email: "tia1@nyu.edu"
+    phone: "050-5636228"

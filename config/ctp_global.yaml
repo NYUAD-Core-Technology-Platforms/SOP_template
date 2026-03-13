@@ -6,18 +6,18 @@ institution: "New York University Abu Dhabi"
 department: "Core Technology Platforms"
 
 director:
-  name: "[Director Name]"
-  email: "director@nyu.edu"
-  phone: "02-628-XXXX"
+  name: "Reza Rowshan"
+  email: "rr130@nyu.edu"
+  phone: "02-628-4110"
 
 # Emergency contacts shared across all labs
 emergency_contacts:
   emergency_services: "999"
-  public_safety: "02-628-5555"
+  public_safety: "02-628-7777"
   ehs:
-    name: "Dr. Tehmina Kazmi"
-    phone: "02-628-8102"
-    email: "ehs@nyu.edu"
+    name: "Hussain Nawaz"
+    phone: "055-5052481"
+    email: "mn90@nyu.edu"
   facilities:
     name: "Michael Davis"
     email: "md149@nyu.edu"
